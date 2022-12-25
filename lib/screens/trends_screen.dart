@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:daybrec/screens/authentication_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -44,7 +45,6 @@ class _TrendsScreenState extends State<TrendsScreen> {
           ),
           actions: [
             PopupMenuButton(
-              
               // add icon, by default "3 dot" icon
               // icon: Icon(Icons.book)
               itemBuilder: (context) {
@@ -59,7 +59,8 @@ class _TrendsScreenState extends State<TrendsScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              print('xx');
+                              Navigator.pushReplacementNamed(context,
+                                  AuthenticationScreen.routeName);
                             },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),

@@ -113,10 +113,10 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                             _isLogin = !_isLogin;
                           });
                         },
-                        //  textColor: Theme.of(context).primaryColor,
                         child: Text(_isLogin
                             ? 'Create New Account'
-                            : 'I already have an account'))
+                            : 'I already have an account',                            
+                            style: TextStyle(color:Theme.of(context).primaryColor, ),))
                 ],
               ),
             ),

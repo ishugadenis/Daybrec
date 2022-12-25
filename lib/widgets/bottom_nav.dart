@@ -37,7 +37,7 @@ class BottomNav extends StatelessWidget {
                 icon: const FaIcon(FontAwesomeIcons.userAstronaut)),
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, ChatsScreen.routName);
+                  Navigator.of(context).pushNamed(ChatsScreen.routName);
                 },
                 icon: const FaIcon(
                   FontAwesomeIcons.rocketchat,

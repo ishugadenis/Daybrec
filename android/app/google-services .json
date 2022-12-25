@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1086218412039",
+    "project_id": "daybrec-78f2c",
+    "storage_bucket": "daybrec-78f2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086218412039:android:6cecfe0ae0fcc109efcaa2",
+        "android_client_info": {
+          "package_name": "com.example.daybrec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086218412039-ur0cjlbe2u43hl5aep7evp8skqoqfbkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq1kcPJpXkh48q7ZTE4jLSxnIQ40lrlzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086218412039-ur0cjlbe2u43hl5aep7evp8skqoqfbkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
