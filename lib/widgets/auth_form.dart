@@ -9,6 +9,7 @@ class AuthenticationForm extends StatefulWidget {
     String email,
     String password,
     String username,
+    String phoneNumber,
     bool isLogin,
     BuildContext context,
   ) submitFn;
@@ -22,6 +23,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   var _userEmail = '';
   var _userName = '';
   var _userPassword = '';
+  var _phoneNumber = '';
 
   void _trySubmit() {
     final _isValid = _formKey.currentState!.validate();
@@ -33,9 +35,11 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
         _userEmail,
         _userPassword,
         _userName,
+        _phoneNumber,
         _isLogin,
         context,
       );
+      //Navigator.of(context).pushReplacementNamed(TrendsScreen.routeName);
     }
   }
 
@@ -52,6 +56,14 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: CircleAvatar(
+                      // maxRadius: 30,
+                      radius: 30,
+                      foregroundImage: AssetImage('assets/logo/logo.png'),
+                    ),
+                  ),
                   TextFormField(
                     key: const ValueKey('email'),
                     validator: (value) {
@@ -80,6 +92,32 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                       onSaved: (value) {
                         _userName = value!;
                       },
+                    ),
+                  if (!_isLogin)
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                          child: Text('+254'),
+                        ),
+                        Expanded(
+                          child: TextFormField(
+                            key: const ValueKey('phoneNumber'),
+                            validator: (value) {
+                              if (value!.isEmpty || value.length == 4) {
+                                return 'Invalid phone number';
+                              }
+                              return null;
+                            },
+                            decoration: const InputDecoration(
+                                labelText: 'Phone number'),
+                            onSaved: (value) {
+                              _phoneNumber = value!;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   TextFormField(
                     key: const ValueKey('password'),
@@ -113,10 +151,14 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                             _isLogin = !_isLogin;
                           });
                         },
-                        child: Text(_isLogin
-                            ? 'Create New Account'
-                            : 'I already have an account',                            
-                            style: TextStyle(color:Theme.of(context).primaryColor, ),))
+                        child: Text(
+                          _isLogin
+                              ? 'Create New Account'
+                              : 'I already have an account',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ))
                 ],
               ),
             ),

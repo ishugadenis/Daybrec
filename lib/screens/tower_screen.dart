@@ -1,20 +1,20 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:daybrec/screens/schedule_screen.dart';
-import 'package:daybrec/widgets/programme_container.dart';
+import 'package:daybrec/widgets/tower_container.dart';
 import 'package:flutter/material.dart';
 import '../models/programme_model.dart';
 import '../widgets/bottom_nav.dart';
 
-class ProgrammeScreen extends StatelessWidget {
-  List Programmes = [
-    Programme(name: 'Attendance', imageUrl: 'assets/profiles/attendance.png', route: ScheduleScreen.routeName),
-    Programme(name: 'Schedule', imageUrl: 'assets/profiles/schedule.jpg', route: ScheduleScreen.routeName),
-    Programme(name: 'Support', imageUrl: 'assets/profiles/support.png', route: ScheduleScreen.routeName),
-    Programme(name: 'Task', imageUrl: 'assets/profiles/task.jpg', route: ScheduleScreen.routeName),
+class TowerScreen extends StatelessWidget {
+  List Towers = [
+    Tower(name: 'Attendance', imageUrl: 'assets/profiles/attendance.png', route: ScheduleScreen.routeName),
+    Tower(name: 'Schedule', imageUrl: 'assets/profiles/schedule.jpg', route: ScheduleScreen.routeName),
+    Tower(name: 'Support', imageUrl: 'assets/profiles/support.png', route: ScheduleScreen.routeName),
+    Tower(name: 'Task', imageUrl: 'assets/profiles/task.jpg', route: ScheduleScreen.routeName),
   ];
 
-  static const routeName = './programmeScreen';
+  static const routeName = './tower';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +28,8 @@ class ProgrammeScreen extends StatelessWidget {
               child: GridView(
                padding: const EdgeInsets.all(20),
                 shrinkWrap: true,
-                children: Programmes.map((e) => ProgrammeContainer(
-                  programme: e,
+                children: Towers.map((e) => TowerContainer(
+                  tower: e,
                 )).toList(),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,

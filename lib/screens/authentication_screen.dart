@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../widgets/auth_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class AuthenticationScreen extends StatefulWidget {
-
-
   static const routeName = './authScreen';
   @override
   State<AuthenticationScreen> createState() => _AuthenticationScreenState();
@@ -16,7 +13,6 @@ class AuthenticationScreen extends StatefulWidget {
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   // const AuthenticationScren({Key? key}) : super(key: key);
 
-  
   final _auth = FirebaseAuth.instance;
 
   var _isLoading = false;
@@ -25,6 +21,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
     String email,
     String password,
     String username,
+    String phoneNumber,
     bool isLogin,
     BuildContext ctx,
   ) async {
@@ -45,15 +42,10 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
             .doc(authResult.user?.uid)
             .set({
           'username': username,
+          'id': authResult.user?.uid,
           'email': email,
-        });
-        await FirebaseFirestore.instance
-            .collection('goals')
-            .doc(authResult.user?.uid)
-            .set({
-          'targetWeight': '40',
-          'isTargetSet': true,
-          'userId': FirebaseAuth.instance.currentUser?.uid
+          'phoneNumber': phoneNumber,
+          'password': password,
         });
       }
     } on PlatformException catch (err) {
@@ -79,16 +71,23 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   }
 
   @override
+  void dispose() {
+   
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                'https://media.istockphoto.com/photos/sport-fitness-weightlifting-sports-injury-and-people-concept-young-picture-id1329114981?s=2048x2048'),
-            fit: BoxFit.cover,
-          ),
+        decoration: const BoxDecoration(
+          color: Colors.black,
+          // image: DecorationImage(
+          //   // image: NetworkImage(
+          //   //     'https://media.istockphoto.com/photos/sport-fitness-weightlifting-sports-injury-and-people-concept-young-picture-id1329114981?s=2048x2048'),
+          //   fit: BoxFit.cover,
+          // ),
         ),
         child: Center(
           child: AuthenticationForm(_submitAuthForm, _isLoading),

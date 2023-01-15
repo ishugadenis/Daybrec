@@ -1,18 +1,17 @@
-import 'package:daybrec/screens/schedule_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../models/programme_model.dart';
 
-class ProgrammeContainer extends StatelessWidget {
-  Programme programme;
+class TowerContainer extends StatelessWidget {
+  Tower tower;
 
-  ProgrammeContainer({Key? key, required this.programme}) : super(key: key);
+  TowerContainer({Key? key, required this.tower}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, programme.route);
+        Navigator.pushNamed(context, tower.route);
       },
       child: Container(
         // width: MediaQuery.of(context).size.width * 0.32,
@@ -33,10 +32,10 @@ class ProgrammeContainer extends StatelessWidget {
             child: Container(
               // height: MediaQuery.of(context).size.height * 0.17,
               // width: MediaQuery.of(context).size.width * 0.32,
-              child: Image.asset(programme.imageUrl, fit: BoxFit.contain),
+              child: Image.asset(tower.imageUrl, fit: BoxFit.contain),
             ),
           ),
-          Text(programme.name)
+          Text(tower.name)
         ]),
       ),
     );

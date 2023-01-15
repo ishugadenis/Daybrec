@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_nav.dart';
+import '../widgets/user_info.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -19,31 +20,7 @@ class ProfileScreen extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.fromLTRB(15, 30, 15, 15),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      maxRadius: 40,
-                    ),
-                    Text('Tevin Ishuga'),
-                    Divider(
-                      thickness: 1,
-                    ),
-                    Text('Phone number: 0710753221'),
-                    Divider(
-                      thickness: 1,
-                    ),
-                    Text('Position: Manager'),
-                    Divider(
-                      thickness: 1,
-                    ),
-                    Text('Email: tevin@gmail.com'),
-                    Divider(
-                      thickness: 1,
-                    ),
-                    Text('Log out'),
-                  ]),
+              child:  UserInfo(),
             ),
           ),
           SizedBox(
@@ -55,3 +32,5 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+

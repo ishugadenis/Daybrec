@@ -1,7 +1,7 @@
-class Programme {
+class Tower {
   String name;
   String imageUrl;
   dynamic route;
 
-  Programme({required this.name, required this.imageUrl, required this.route});
+  Tower({required this.name, required this.imageUrl, required this.route});
 }

@@ -1,4 +1,4 @@
-import 'package:daybrec/screens/programme_screen.dart';
+import 'package:daybrec/screens/tower_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../screens/chats_screen.dart';
@@ -51,7 +51,7 @@ class BottomNav extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(
-                      context, ProgrammeScreen.routeName);
+                      context, TowerScreen.routeName);
                 },
                 icon: const FaIcon(FontAwesomeIcons.solidCalendar)),
           ],
